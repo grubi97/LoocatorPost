@@ -31,6 +31,15 @@ namespace API.Controllers
         }
 
         
+        [HttpGet("/test")]
+        
+
+       public ActionResult<string> Test()
+        {
+            return("ok");
+        }
+
+        
 
     }
 }
