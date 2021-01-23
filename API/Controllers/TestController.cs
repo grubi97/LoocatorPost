@@ -11,21 +11,20 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReadingController
+    public class TestController
     {
         private readonly IMediator _mediator;
 
-        public ReadingController(IMediator mediator)
+        public TestController(IMediator mediator)
         {
             _mediator = mediator;
         } 
 
-        [HttpPost("{sensorid}")]
-        [Authorize]
-        public async Task<ActionResult<Unit>> Create(int sensorid, Create.Command command)
+        [HttpGet("test")]
+        public ActionResult<string> Test()
         {
-            command.SensorId=sensorid;
-            return await _mediator.Send(command);
+            return("ok");
         }
+
     }
 }
