@@ -52,7 +52,7 @@ namespace API.Handler
                 int Id = Int32.Parse(id);
                 var password = credentials[1];
                 var decryptedString = Security.EncryptString(key, password);
-                sensor = await _context.Sensors.Where(s => s.Id == Id && s.Password == password).FirstOrDefaultAsync();
+                sensor = await _context.Sensors.Where(s => s.Id == Id && s.Password == decryptedString).FirstOrDefaultAsync();
 
             }
             catch

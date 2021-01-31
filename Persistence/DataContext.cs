@@ -18,11 +18,20 @@ namespace Persistence
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.Entity<Reading>()
+                    .Property(u=>u.Id)
+                    .ValueGeneratedOnAdd();
+
+             builder.Entity<Sensor>()
+                    .Property(u=>u.Id)
+                    .ValueGeneratedOnAdd();
             
             builder.Entity<Reading>()
                     .HasOne(u => u.Sensor)
                     .WithMany(a => a.Readings)
                     .HasForeignKey(u => u.SensorId);
+                    
+
 
 
 
